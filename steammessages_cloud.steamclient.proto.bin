@@ -1,0 +1,161 @@
+
+%steammessages_cloud.steamclient.proto,steammessages_unified_base.steamclient.proto"d
+"CCloud_GetUploadServerInfo_Request>
+appid (B/Çµ+App ID to which a file will be uploaded to."9
+#CCloud_GetUploadServerInfo_Response
+
+server_url (	"î
+CCloud_BeginHTTPUpload_Request?
+appid (B0Çµ,App ID for which the file is being uploaded.3
+	file_size (B ÇµOriginal file size in bytes.=
+filename (	B+Çµ'Name of the file to store in the cloud.V
+file_sha (	BDÇµ@Hex string (40 digits) representing the SHA1 digest of the file.\
+	is_public (BIÇµETrue if the file should be marked public on the UFS, false otherwise.z
+platforms_to_sync (	B_Çµ[Array of string specifying which platforms to sync; value values: all, windows, osx, linux.r
+request_headers_names (	BSÇµONames for headers you'll want to set on your upload request. May be left blank.ñ
+request_headers_values (	BvÇµrValues for headers you'll want to set on your upload request. The number of names must equal the number of values."ò
+CCloud_BeginHTTPUpload_Response/
+ugcid (B ÇµUGC ID of the uploaded file.0
+	timestamp (BÇµServer timestamp of file.X
+url_host (	BFÇµBHost name of server to which file should be uploaded via HTTP PUT.O
+url_path (	B=Çµ9Relative path on server to which file should be uploaded.>
+	use_https (B+Çµ'If true, use https, otherwise use http.{
+request_headers (2,.CCloud_BeginHTTPUpload_Response.HTTPHeadersB4Çµ0Name-value pairs to be sent in HTTP PUT request.*
+HTTPHeaders
+name (	
+value (	"≠
+CCloud_CommitHTTPUpload_Request§
+transfer_succeeded (BáÇµÇTrue if the HTTP PUT to the upload URL succeeded (URL provided in response to Cloud.BeginHTTPUpload), false if a failure occurred.x
+appid (BiÇµeApp ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginHTTPUpload.ï
+file_sha (	BÇÇµ~Hex string (40 digits) representing the SHA1 digest of the file. Must match the SHA1 digest provided to Cloud.BeginHTTPUpload.Q
+filename (	B?Çµ;Filename as specified in the Cloud.BeginHTTPUpload request."}
+ CCloud_CommitHTTPUpload_ResponseY
+file_committed (BAÇµ=True if the file was successfully committed, false otherwise."å
+CCloud_GetFileDetails_Request;
+ugcid (B,Çµ(ID of the Cloud file to get details for..
+appid (BÇµApp ID the file belongs to."ç
+CCloud_UserFile
+appid (
+ugcid (
+filename (	
+	timestamp (
+	file_size (
+url (	
+steamid_creator ("C
+CCloud_GetFileDetails_Response!
+details (2.CCloud_UserFile"È
+!CCloud_EnumerateUserFiles_Request4
+appid (B%Çµ!App ID to enumerate the files of.õ
+extended_details (BÄÇµ|(Optional) Get extended details back on the files found. Defaults to only returned the app Id and UGC Id of the files found.|
+count (BmÇµi(Optional) Maximum number of results to return on this call. Defaults to a maximum of 500 files returned.r
+start_index (B]ÇµY(Optional) Starting index to begin enumeration at. Defaults to the beginning of the list."Z
+"CCloud_EnumerateUserFiles_Response
+files (2.CCloud_UserFile
+total_files ("Y
+CCloud_Delete_Request
+filename (	.
+appid (BÇµApp ID the file belongs to."
+CCloud_Delete_Response"'
+%CCloud_GetClientEncryptionKey_Request"n
+&CCloud_GetClientEncryptionKey_Response'
+key (BÇµAES-256 encryption key
+crc (BÇµ
+CRC of key"™
+CCloud_CDNReport_Notification
+steamid (
+url (	
+success (
+http_status_code (
+expected_bytes (
+received_bytes (
+duration ("‡
+1CCloud_ExternalStorageTransferReport_Notification
+host (	
+path (	
+	is_upload (
+success (
+http_status_code (
+bytes_expected (
+bytes_actual (
+duration_ms (
+cellid	 ("º
+$CCloud_ClientBeginFileUpload_Request?
+appid (B0Çµ,App ID for which the file is being uploaded.D
+	file_size (B1Çµ-file size as transmitted and stored in Cloud.N
+raw_file_size (B7Çµ3file size before any compression and/or encryption.(
+file_sha (BÇµSHA-1 of raw file.*
+
+time_stamp (BÇµTimestamp of file.=
+filename (	B+Çµ'Name of the file to store in the cloud.%
+platforms_to_sync (:
+4294967295F
+cell_id	 (B5Çµ1Client's cell ID so we can pick storage location.Q
+can_encrypt
+ (B<Çµ8if true, client can encrypt the file before uploading itf
+is_shared_file (BNÇµJif true, this is going to be UGC or a screenshot or some other shared file"Ò
+!ClientCloudFileUploadBlockDetailsX
+url_host (	BFÇµBHost name of server to which file should be uploaded via HTTP PUT.O
+url_path (	B=Çµ9Relative path on server to which file should be uploaded.>
+	use_https (B+Çµ'If true, use https, otherwise use http.;
+http_method (B&Çµ"EHTTPMethod to use for this block.}
+request_headers (2..ClientCloudFileUploadBlockDetails.HTTPHeadersB4Çµ0Name-value pairs to be sent in HTTP PUT request.8
+block_offset (B"Çµoffset of file block to uploadm
+block_length (BWÇµSlength of file block to upload - if zero, no part of the file is part of this block_
+explicit_body_data (BCÇµ?explicit body data to use, instead of file data, for this blocko
+may_parallelize	 (BVÇµRif true, this request may be done in parallel with other similarly-marked requests*
+HTTPHeaders
+name (	
+value (	"Ì
+%CCloud_ClientBeginFileUpload_Response[
+encrypt_file (BEÇµAIf true, the file should be encrypted by the client before uploadg
+block_requests (2".ClientCloudFileUploadBlockDetailsB+Çµ'HTTP requests to make to perform upload"…
+%CCloud_ClientCommitFileUpload_Requesta
+transfer_succeeded (BEÇµATrue if all block uploads succeeded, false if any of them failed.x
+appid (BiÇµeApp ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginFileUpload.p
+file_sha (B^ÇµZSHA1 digest of the raw file. Must match the SHA1 digest provided to Cloud.BeginFileUpload.Q
+filename (	B?Çµ;Filename as specified in the Cloud.BeginFileUpload request."É
+&CCloud_ClientCommitFileUpload_ResponseY
+file_committed (BAÇµ=True if the file was successfully committed, false otherwise."Ä
+!CCloud_ClientFileDownload_Request.
+appid (BÇµApp ID the file is part of.+
+filename (	BÇµFilename of the file."˛
+"CCloud_ClientFileDownload_Response2
+appid (B#ÇµApplication the file belongs toG
+	file_size (B4Çµ0file size as transmitted and stored in the CloudG
+raw_file_size (B0Çµ,file size when decompressed and/or decrypted!
+sha_file (BÇµSHA of file)
+
+time_stamp (BÇµTimestamp of fileJ
+is_explicit_delete (B.Çµ*True if this is an explicitly deleted file/
+url_host (	BÇµHost to GET the file fromO
+url_path (	B=Çµ9Path on that host to use, including URL parameters if any7
+	use_https	 (B$Çµ If set, use HTTPS, else use HTTP~
+request_headers
+ (2/.CCloud_ClientFileDownload_Response.HTTPHeadersB4Çµ0Name-value pairs to be sent in HTTP GET request.
+	encrypted (*
+HTTPHeaders
+name (	
+value (	"„
+CCloud_ClientDeleteFile_Request>
+appid (B/Çµ+App ID for which the file is being deleted.'
+filename (	BÇµFilename of file.W
+is_explicit_delete (B;Çµ7If true, this is a 'delete'; if false, it is a 'forget'""
+ CCloud_ClientDeleteFile_Response"‡
+,CCloud_ClientConflictResolution_Notification>
+appid (B/Çµ+App ID for which the conflict was resolved.p
+chose_local_files (BUÇµQDid the user choose to keep the files local to the machine they are on right now?2ô
+Cloudú
+GetUploadServerInfo#.CCloud_GetUploadServerInfo_Request$.CCloud_GetUploadServerInfo_Response":Çµ6Returns the URL of the proper cloud server for a user.®
+BeginHTTPUpload.CCloud_BeginHTTPUpload_Request .CCloud_BeginHTTPUpload_Response"—ÇµÃBegins the process of uploading a file to Steam external storage services. File should be uploaded via HTTP PUT to the returned URL, after which the upload must be finalized by a call to CommitHTTPUpload.≠
+CommitHTTPUpload .CCloud_CommitHTTPUpload_Request!.CCloud_CommitHTTPUpload_Response"TÇµPCommits a file upload initiated by BeginHTTPUpload and transferred via HTTP PUT.w
+GetFileDetails.CCloud_GetFileDetails_Request.CCloud_GetFileDetails_Response"$Çµ Returns details on a Cloud file.∫
+EnumerateUserFiles".CCloud_EnumerateUserFiles_Request#.CCloud_EnumerateUserFiles_Response"[ÇµWEnumerates Cloud files for a user of a given app ID. Returns up to 500 files at a time.d
+Delete.CCloud_Delete_Request.CCloud_Delete_Response")Çµ%Deletes a file from the user's cloud.ô
+GetClientEncryptionKey&.CCloud_GetClientEncryptionKey_Request'.CCloud_GetClientEncryptionKey_Response".Çµ*Gets the user's Cloud file encryption key.c
+	CDNReport.CCloud_CDNReport_Notification.NoResponse")Çµ%Reports the result of a CDN transfer.ü
+ExternalStorageTransferReport2.CCloud_ExternalStorageTransferReport_Notification.NoResponse"=Çµ9Reports the result of an external Cloud storage transfer.à
+ClientBeginFileUpload%.CCloud_ClientBeginFileUpload_Request&.CCloud_ClientBeginFileUpload_Response" ÇµInitiate an upload to Cloud.ö
+ClientCommitFileUpload&.CCloud_ClientCommitFileUpload_Request'.CCloud_ClientCommitFileUpload_Response"/Çµ+Commit the file upload or indicate failure.|
+ClientFileDownload".CCloud_ClientFileDownload_Request#.CCloud_ClientFileDownload_Response"ÇµInitiate a file download.u
+ClientDeleteFile .CCloud_ClientDeleteFile_Request!.CCloud_ClientDeleteFile_Response"ÇµDelete or forget a file.é
+ClientConflictResolution-.CCloud_ClientConflictResolution_Notification.NoResponse"6Çµ2User has picked a resolution for a Cloud conflict.)Çµ%A service for Steam Cloud operations.BÄ

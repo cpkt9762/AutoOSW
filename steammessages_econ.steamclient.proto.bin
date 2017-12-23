@@ -1,0 +1,9 @@
+
+$steammessages_econ.steamclient.proto,steammessages_unified_base.steamclient.proto"C
+-CEcon_ClientGetItemShopOverlayAuthURL_Request
+
+return_url (	"=
+.CEcon_ClientGetItemShopOverlayAuthURL_Response
+url (	2£
+EconÙ
+ClientGetItemShopOverlayAuthURL..CEcon_ClientGetItemShopOverlayAuthURL_Request/.CEcon_ClientGetItemShopOverlayAuthURL_Response"U‚µQGenerates a URL which sets a secure cookie for in-game-browser itemshop purchases?‚µ;A service that provides communication with the econ serversB€

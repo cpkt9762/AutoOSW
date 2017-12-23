@@ -1,0 +1,8 @@
+
++steammessages_useraccount.steamclient.proto,steammessages_unified_base.steamclient.proto"+
+)CUserAccount_GetAccountLinkStatus_Request"Y
+*CUserAccount_GetAccountLinkStatus_Response
+pwid (
+identity_verification (2œ
+UserAccountê
+GetAccountLinkStatus*.CUserAccount_GetAccountLinkStatus_Request+.CUserAccount_GetAccountLinkStatus_Response"ÇµFetches account link status-Çµ)A service to get user account informationBÄ

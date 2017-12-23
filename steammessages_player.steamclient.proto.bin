@@ -1,0 +1,41 @@
+
+&steammessages_player.steamclient.proto,steammessages_unified_base.steamclient.proto"3
+"CPlayer_GetGameBadgeLevels_Request
+appid ("µ
+#CPlayer_GetGameBadgeLevels_Response
+player_level (:
+badges (2*.CPlayer_GetGameBadgeLevels_Response.Badge<
+Badge
+level (
+series (
+border_color ("‚
+"CPlayer_GetLastPlayedTimes_Request\
+min_last_played (BC‚µ?The most recent last-played time the client already knows about"À
+#CPlayer_GetLastPlayedTimes_Response8
+games (2).CPlayer_GetLastPlayedTimes_Response.Game_
+Game
+appid (
+last_playtime (
+playtime_2weeks (
+playtime_forever ("
+CPlayer_AcceptSSA_Request"
+CPlayer_AcceptSSA_Response"!
+CPlayer_GetNicknameList_Request"ž
+ CPlayer_GetNicknameList_ResponseC
+	nicknames (20.CPlayer_GetNicknameList_Response.PlayerNickname5
+PlayerNickname
+	accountid (
+nickname (	"`
+$CPlayer_LastPlayedTimes_Notification8
+games (2).CPlayer_GetLastPlayedTimes_Response.Game"Q
+*CPlayer_FriendNicknameChanged_Notification
+	accountid (
+nickname (	2„
+Player¶
+GetGameBadgeLevels#.CPlayer_GetGameBadgeLevels_Request$.CPlayer_GetGameBadgeLevels_Response"U‚µQReturns the Steam Level of a user, the Badge level for the game, and if it's foil•
+ClientGetLastPlayedTimes#.CPlayer_GetLastPlayedTimes_Request$.CPlayer_GetLastPlayedTimes_Response".‚µ*Gets the last-played times for the accountc
+	AcceptSSA.CPlayer_AcceptSSA_Request.CPlayer_AcceptSSA_Response"‚µUser is accepting the SSA”
+GetNicknameList .CPlayer_GetNicknameList_Request!.CPlayer_GetNicknameList_Response"<‚µ8Gets the list of nicknames this user has for other users-‚µ)A service for accessing Steam player data2ô
+PlayerClientŒ
+NotifyLastPlayedTimes%.CPlayer_LastPlayedTimes_Notification.NoResponse"?‚µ;Notification from server to client of more recent play time¤
+NotifyFriendNicknameChanged+.CPlayer_FriendNicknameChanged_Notification.NoResponse"K‚µGNotification from server to client that a friend's nickname has changed.‚µ&Steam player data client notificationsÀµB€

@@ -1,0 +1,178 @@
+
+)steammessages_broadcast.steamclient.proto,steammessages_unified_base.steamclient.proto"·
+(CBroadcast_BeginBroadcastSession_Request
+
+permission (
+gameid (
+client_instance_id (
+title (	
+cellid (
+
+rtmp_token (
+thumbnail_upload ("Ç
+)CBroadcast_BeginBroadcastSession_Response
+broadcast_id (P
+thumbnail_upload_address (	B.‚µ*Http address to upload the thumbnail data.e
+thumbnail_upload_token (	BE‚µAtoken to authorize as broadcaster to upload content to the relay.K
+thumbnail_interval_seconds (B'‚µ#how many seconds between thumbnails">
+&CBroadcast_EndBroadcastSession_Request
+broadcast_id (")
+'CBroadcast_EndBroadcastSession_Response"w
+'CBroadcast_StartBroadcastUpload_Request
+broadcast_id (
+cellid (
+as_rtmp (
+delay_seconds ("·
+(CBroadcast_StartBroadcastUpload_Response
+upload_token (	
+upload_address (	
+upload_relay_id ( 
+thumbnail_upload_address (	"
+thumbnail_interval_seconds ("f
+1CBroadcast_NotifyBroadcastUploadStop_Notification
+broadcast_relay_id (
+upload_result ("´
+!CBroadcast_WatchBroadcast_Request)
+steamid (B‚µbroadcaster steamID.X
+existing_broadcast_id (B9‚µ5broadcast session ID (optional, rejoin if specified).b
+viewer_token (BL‚µHviewer token received from last WatchRequest call, from browser storage.
+	client_ip (
+client_cell ("†
+"CBroadcast_WatchBroadcast_ResponseD
+response (22.CBroadcast_WatchBroadcast_Response.EWatchResponse
+mpd_url (	
+broadcast_id (
+gameid (
+title (	
+num_viewers (
+
+permission (
+is_rtmp (
+seconds_delay	 (
+viewer_token
+ (
+hls_m3u8_master_url (	"Ï
+EWatchResponse
+k_EWatchResponseReady 
+k_EWatchResponseNotAvailable&
+"k_EWatchResponseWaitingForApproval#
+k_EWatchResponseWaitingForStart"
+k_EWatchResponseInvalidSession%
+!k_EWatchResponseTooManyBroadcasts'
+#k_EWatchResponseWaitingForReconnect&
+"k_EWatchResponseSystemNotSupported"
+k_EWatchResponseUserRestricted	#
+k_EWatchResponseClientOutOfDate
+%
+!k_EWatchResponsePoorUploadQuality'
+#k_EWatchResponseMissingSubscription"N
+%CBroadcast_GetBroadcastStatus_Request
+steamid (
+broadcast_id ("®
+&CBroadcast_GetBroadcastStatus_Response
+gameid (
+title (	
+num_viewers (
+
+permission (
+is_rtmp (
+seconds_delay (
+is_publisher ("R
+$CBroadcast_InviteToBroadcast_Request
+steamid (
+approval_response ("8
+%CBroadcast_InviteToBroadcast_Response
+success ("|
+-CBroadcast_SendBroadcastStateToServer_Request
+
+permission (
+gameid (
+title (	
+game_data_config (	"0
+.CBroadcast_SendBroadcastStateToServer_Response"O
+7CBroadcast_NotifyBroadcastSessionHeartbeat_Notification
+broadcast_id ("x
+'CBroadcast_GetBroadcastChatInfo_Request
+steamid (
+broadcast_id (
+	client_ip (
+client_cell ("h
+(CBroadcast_GetBroadcastChatInfo_Response
+chat_id (
+view_url (	
+view_url_template (	"[
+"CBroadcast_PostChatMessage_Request
+chat_id (
+message (	
+instance_id ("\
+#CBroadcast_PostChatMessage_Response
+persona_name (	
+in_game (
+result ("`
+(CBroadcast_MuteBroadcastChatUser_Request
+chat_id (
+user_steamid (
+muted ("+
+)CBroadcast_MuteBroadcastChatUser_Response"N
+%CBroadcast_RemoveUserChatText_Request
+chat_id (
+user_steamid ("(
+&CBroadcast_RemoveUserChatText_Response"U
+,CBroadcast_GetBroadcastChatUserNames_Request
+chat_id (
+user_steamid ("´
+-CBroadcast_GetBroadcastChatUserNames_ResponseQ
+persona_names (2:.CBroadcast_GetBroadcastChatUserNames_Response.PersonaName0
+PersonaName
+steam_id (
+persona (	"à
+,CBroadcast_BroadcastViewerState_Notification
+steamid (I
+state (2:.CBroadcast_BroadcastViewerState_Notification.EViewerState"T
+EViewerState
+k_EViewerNeedsApproval
+k_EViewerWatching
+k_EViewerLeft"F
+.CBroadcast_WaitingBroadcastViewer_Notification
+broadcast_id ("•
++CBroadcast_StopBroadcastUpload_Notification
+broadcast_id (
+broadcast_relay_id (
+upload_result (
+too_many_poor_uploads ("=
+%CBroadcast_SessionClosed_Notification
+broadcast_id ("L
+-CBroadcast_ViewerBroadcastInvite_Notification
+broadcaster_steamid ("T
+'CBroadcast_BroadcastStatus_Notification
+broadcast_id (
+num_viewers ("Á
+,CBroadcast_SendThumbnailToRelay_Notification
+thumbnail_upload_token (	&
+thumbnail_broadcast_session_id (
+thumbnail_data (
+thumbnail_width (
+thumbnail_height (2á
+	Broadcastí
+BeginBroadcastSession).CBroadcast_BeginBroadcastSession_Request*.CBroadcast_BeginBroadcastSession_Response"}‚µyRequest from client to directory to begin a broadcast session. No data being sent to relay; just available for broadcast.º
+EndBroadcastSession'.CBroadcast_EndBroadcastSession_Request(.CBroadcast_EndBroadcastSession_Response"P‚µLRequest from client to stop a broadcast session. Any uploads will terminate.¬
+StartBroadcastUpload(.CBroadcast_StartBroadcastUpload_Request).CBroadcast_StartBroadcastUpload_Response"?‚µ;Request from client to begin sending video for a broadcast.™
+NotifyBroadcastUploadStop2.CBroadcast_NotifyBroadcastUploadStop_Notification.NoResponse";‚µ7Tells directory that client stopped uploading broadcast‡
+WatchBroadcast".CBroadcast_WatchBroadcast_Request#.CBroadcast_WatchBroadcast_Response",‚µ(Request from viewer to watch a broadcast–
+GetBroadcastStatus&.CBroadcast_GetBroadcastStatus_Request'.CBroadcast_GetBroadcastStatus_Response"/‚µ+Request from viewer about broadcast details¢
+InviteToBroadcast%.CBroadcast_InviteToBroadcast_Request&.CBroadcast_InviteToBroadcast_Response">‚µ:Invites another steam user to watch the caller's broadcastÈ
+SendBroadcastStateToServer..CBroadcast_SendBroadcastStateToServer_Request/.CBroadcast_SendBroadcastStateToServer_Response"I‚µESends users current broadcast state (permissions, game) to the server¢
+NotifyBroadcastSessionHeartbeat8.CBroadcast_NotifyBroadcastSessionHeartbeat_Notification.NoResponse"8‚µ4Tells directory broadcast session is still available”
+GetBroadcastChatInfo(.CBroadcast_GetBroadcastChatInfo_Request).CBroadcast_GetBroadcastChatInfo_Response"'‚µ#Gets chat room info for a broadcastŠ
+PostChatMessage#.CBroadcast_PostChatMessage_Request$.CBroadcast_PostChatMessage_Response",‚µ(Post chat message to specified chat room–
+MuteBroadcastChatUser).CBroadcast_MuteBroadcastChatUser_Request*.CBroadcast_MuteBroadcastChatUser_Response"&‚µ"Mute a user in your broadcast chat”
+RemoveUserChatText&.CBroadcast_RemoveUserChatText_Request'.CBroadcast_RemoveUserChatText_Response"-‚µ)Tell all viewers to remove user chat text£
+GetBroadcastChatUserNames-.CBroadcast_GetBroadcastChatUserNames_Request..CBroadcast_GetBroadcastChatUserNames_Response"'‚µ#Get names for list of users in chat*‚µ&Methods for Steam broadcast operations2Ü	
+BroadcastClient¡
+NotifyBroadcastViewerState-.CBroadcast_BroadcastViewerState_Notification.NoResponse"G‚µCNotification from server to client that a viewers state has changed½
+NotifyWaitingBroadcastViewer/.CBroadcast_WaitingBroadcastViewer_Notification.NoResponse"_‚µ[Notification from server to client one or more users is waiting for user to start broadcastÖ
+NotifyStopBroadcastUpload,.CBroadcast_StopBroadcastUpload_Notification.NoResponse"~‚µzNotification from server to client telling it to stop uploading when the last viewer has disconnected from their broadcastµ
+NotifySessionClosed&.CBroadcast_SessionClosed_Notification.NoResponse"i‚µeNotification from server to client telling it a session has been closed unexpectedly by the directoryÃ
+NotifyViewerBroadcastInvite..CBroadcast_ViewerBroadcastInvite_Notification.NoResponse"g‚µcNotification from server to client that a broadcaster is inviting a viewer to watch their broadcast•
+NotifyBroadcastStatus(.CBroadcast_BroadcastStatus_Notification.NoResponse"E‚µANotification from server to client about current broadcast statusp
+SendThumbnailToRelay-.CBroadcast_SendThumbnailToRelay_Notification.NoResponse"‚µSend thumbnails to relayÀµB€

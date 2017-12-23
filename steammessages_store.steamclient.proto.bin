@@ -1,0 +1,13 @@
+
+%steammessages_store.steamclient.proto,steammessages_unified_base.steamclient.proto"J
+&CStore_GetLocalizedNameForTags_Request
+language (	
+tagids ("Ÿ
+'CStore_GetLocalizedNameForTags_Response:
+tags (2,.CStore_GetLocalizedNameForTags_Response.Tag8
+Tag
+tagid (
+english_name (	
+name (	2Ç
+Store˜
+GetLocalizedNameForTags'.CStore_GetLocalizedNameForTags_Request(.CStore_GetLocalizedNameForTags_Response"*‚µ&Gets tag names in a different language#‚µA service to access store data.B€
