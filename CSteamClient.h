@@ -1,5 +1,6 @@
 class CSteamClient
 {
+public:
 	virtual unknown_ret CreateSteamPipe() = 0;
 	virtual unknown_ret BReleaseSteamPipe( int32 ) = 0;
 	virtual unknown_ret CreateGlobalUser( int32 * ) = 0;
@@ -66,11 +67,14 @@ class CSteamClient
 	virtual unknown_ret GetIClientSharedConnection( int32, int32, char const* ) = 0;
 	virtual unknown_ret GetIClientShader( int32, int32, char const* ) = 0;
 	virtual unknown_ret GetIClientNetworkingSocketsSerialized( int32, int32, char const* ) = 0;
-	virtual unknown_ret ~CSteamClient() = 0;
-	virtual unknown_ret ~CSteamClient() = 0;
+#if !defined(_MSC_VER)
+	virtual unknown_ret CSteamClient_destructor2() = 0;
+#endif
+	virtual unknown_ret CSteamClient_destructor1() = 0;
 	virtual unknown_ret GetIPCServerMap() = 0;
 	virtual unknown_ret OnDebugTextArrived( char const* ) = 0;
 	virtual unknown_ret OnThreadLocalRegistration() = 0;
 	virtual unknown_ret OnThreadBuffersOverLimit() = 0;
 };
+
 

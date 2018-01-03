@@ -1,5 +1,6 @@
 class IClientUserMap
 {
+public:
 	virtual unknown_ret GetHSteamUser() = 0;
 	virtual void * LogOn( CSteamID ) = 0;
 	virtual void * LogOnWithPassword( char const*, char const* ) = 0;
@@ -231,4 +232,5 @@ class IClientUserMap
 	virtual void SetAppHidden( CGameID, bool ) = 0;
 	virtual void * RequestAccountLinkInfo() = 0;
 };
+
 

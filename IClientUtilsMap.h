@@ -1,5 +1,6 @@
 class IClientUtilsMap
 {
+public:
 	virtual const char * GetInstallPath() = 0;
 	virtual const char * GetUserBaseFolderInstallImage() = 0;
 	virtual const char * GetManagedContentRoot() = 0;

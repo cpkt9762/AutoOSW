@@ -1,5 +1,6 @@
 class IClientAppManagerMap
 {
+public:
 	virtual void * InstallApp( uint32, int32, bool ) = 0;
 	virtual void * UninstallApp( uint32, bool ) = 0;
 	virtual void * LaunchApp( CGameID, uint32, char const* ) = 0;
@@ -85,4 +86,5 @@ class IClientAppManagerMap
 	virtual void AddContentLogLine( char const* ) = 0;
 	virtual void * GetSystemIconFile( uint32, char *, int32 ) = 0;
 };
+
 
